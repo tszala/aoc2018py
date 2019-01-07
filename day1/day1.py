@@ -1,4 +1,10 @@
+import sys
+import os
 from functools import reduce
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..\\common'))
+
+from fileutils import FileReader
 
 def readFile(filename):
     with open(filename) as f:
@@ -36,8 +42,10 @@ def findDoubledFrequency(inputs, frequency):
 
 
 if __name__ == '__main__':
-    content = readFile("input.txt")
-    inputs = stripContentAndConvertToInts(content)
+    f = FileReader()
+    
+    inputs = f.readInts("input.txt")
+
     print(reduce(lambda a,b: a+b, inputs,0))
 
     print(calculateFrequenceWithFor(inputs,0))
