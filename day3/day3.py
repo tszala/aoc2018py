@@ -76,6 +76,12 @@ def part_two(claims):
             print(claim)
             return
 
+def full_group_by(l, key=lambda x: x):
+    d = defaultdict(list)
+    for item in l:
+        d[key(item)].append(item)
+    return d.items()
+
 if __name__ == '__main__':
     print("Advent of Code day 3")
     f = FileReader()
